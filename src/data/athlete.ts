@@ -99,7 +99,7 @@ export const athlete = {
   entries: [{ label: "100m DL week 6, Tue", link: "#" }],
 
   seasonPlanDesired: [15, 25, 46, 72, 60, 42, 40, 48, 55, 67, 78, 55, 30],
-} as const;
+};
 
 // computed total
 export const athleteSeasonPlanDesiredTotal =

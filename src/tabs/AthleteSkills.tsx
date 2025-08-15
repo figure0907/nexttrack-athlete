@@ -1,5 +1,3 @@
-// src/tabs/AthleteSkills.tsx
-import React from "react";
 import GlassCard from "../components/GlassCard";
 import SkillRow from "../components/SkillRow";
 import { LABELS } from "../data/athlete";

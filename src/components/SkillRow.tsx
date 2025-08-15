@@ -1,5 +1,3 @@
-// src/components/SkillRow.tsx
-import React from "react";
 import { displayFromMode, tierBounds, tierIndexOf } from "../utils/tiers";
 
 type ShowMode = 0 | 1 | 2; // 0=Hidden, 1=Word, 2=Value

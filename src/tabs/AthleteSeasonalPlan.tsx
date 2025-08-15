@@ -1,5 +1,3 @@
-// src/tabs/AthleteSeasonalPlan.tsx
-import React from "react";
 import GlassCard from "../components/GlassCard";
 import { athleteSeasonPlanDesiredTotal, publicResults } from "../data/athlete";
 

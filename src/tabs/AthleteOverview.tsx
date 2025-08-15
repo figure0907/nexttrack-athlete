@@ -1,5 +1,3 @@
-// src/tabs/AthleteOverview.tsx
-import React from "react";
 import GlassCard from "../components/GlassCard";
 import StatBar from "../components/StatBar";
 import Meter from "../components/Meter";
@@ -49,12 +47,8 @@ export default function AthleteOverview({ athlete }: { athlete: any }) {
                 {/* Total length */}
                 <div>
                   Contract length: {(() => {
-                    const totalWeeks = athlete.contract.contracts.reduce(
-                      (sum, c) => sum + (c.duration.years * 13 + c.duration.weeks),
-                      0
-                    );
-                    const years = Math.floor(totalWeeks / 13);
-                    const weeks = totalWeeks % 13;
+                    const years = athlete.contract.years;
+                    const weeks = athlete.contract.weeks;
                     return `${years}y ${weeks}w`;
                   })()}
                 </div>

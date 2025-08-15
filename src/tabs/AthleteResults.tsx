@@ -1,5 +1,3 @@
-// src/tabs/AthleteResults.tsx
-import React from "react";
 import GlassCard from "../components/GlassCard";
 
 export default function AthleteResults({ athlete }: { athlete: any }) {
@@ -29,7 +27,7 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
             .sort((a, b) => a.localeCompare(b))
             .map((event) => {
               const benchmarks: Record<string, number> = {
-                "200": 20.65, "100": 10.44, "400": 47.72,
+                "200": 20.65, "100": 10.44, "400": 49.72,
               };
               return (
                 <div key={event} className="flex justify-between">
