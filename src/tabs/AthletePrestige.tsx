@@ -1,5 +1,3 @@
-// src/tabs/AthletePrestige.tsx
-import React from "react";
 import GlassCard from "../components/GlassCard";
 
 type PrestigePoint = {

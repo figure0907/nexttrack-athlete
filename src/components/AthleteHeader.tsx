@@ -1,11 +1,10 @@
-// src/components/AthleteHeader.tsx
-import React from "react";
+import type { AthleteTab } from "../App";
 
 type AthleteHeaderProps = {
-  athlete: { name: string; prestige: number; status: { health: string } };
-  tabs: string[];
-  tab: string;
-  setTab: (t: string) => void;
+  athlete: any;
+  tabs: Exclude<AthleteTab, "Prestige">[];
+  tab: AthleteTab;
+  setTab: React.Dispatch<React.SetStateAction<AthleteTab>>;
 };
 
 export default function AthleteHeader({ athlete, tabs, tab, setTab }: AthleteHeaderProps) {
@@ -46,7 +45,7 @@ export default function AthleteHeader({ athlete, tabs, tab, setTab }: AthleteHea
 
             {/* Tabs */}
             <div className="mt-3 flex gap-3">
-              {tabs.map((t) => (
+              {tabs.map((t: AthleteTab) => (
                 <button
                   key={t}
                   onClick={() => setTab(t)}

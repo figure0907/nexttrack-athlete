@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { athlete } from "./data/athlete";
 import AthleteContract from "./tabs/AthleteContract";
 import AthleteHeader from "./components/AthleteHeader";
@@ -6,11 +6,9 @@ import AthleteOverview from "./tabs/AthleteOverview";
 import AthleteSkills from "./tabs/AthleteSkills";
 import AthleteResults from "./tabs/AthleteResults";
 import AthleteSeasonalPlan from "./tabs/AthleteSeasonalPlan";
-import AthletePrestige from "./tabs/AthletePrestige"; // ⬅️ NEW
+import AthletePrestige from "./tabs/AthletePrestige";
 
-export default function App() {
-  // ⬇️ Added "Prestige" to the union; keeps everything else the same
-  type AthleteTab =
+export type AthleteTab =
     | "Overview"
     | "Contract"
     | "Skills"
@@ -18,8 +16,8 @@ export default function App() {
     | "Seasonal Plan"
     | "Prestige";
 
+export default function App() {
   const [tab, setTab] = useState<AthleteTab>("Overview");
-  // ⬇️ Visible tabs remain exactly as before (Prestige is hidden)
   const tabs: Exclude<AthleteTab, "Prestige">[] = [
     "Overview",
     "Contract",

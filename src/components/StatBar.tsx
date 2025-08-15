@@ -1,6 +1,3 @@
-// src/components/StatBar.tsx
-import React from "react";
-
 export default function StatBar({
   label,
   value,
