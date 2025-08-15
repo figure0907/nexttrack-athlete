@@ -1,0 +1,27 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Optional: background + a reusable "glass" card style */
+:root {
+  color-scheme: light;
+}
+
+/* Soft gradient background (bright) */
+body {
+  @apply text-slate-900;
+  background:
+    radial-gradient(1400px 700px at 15% -10%, #ffe1cc 0%, transparent 60%),
+    radial-gradient(1000px 600px at 100% 0%, #d7e9ff 0%, transparent 55%);
+  min-height: 100vh;
+}
+
+/* Glass utility */
+.glass {
+  @apply rounded-2xl border backdrop-blur-md shadow-sm;
+  @apply border-white/30 bg-white/60;
+}
+
+.mb-4 > .flex.justify-between.text-xs.text-white\/80 {
+  display: none;
+}
