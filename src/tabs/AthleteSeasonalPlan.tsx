@@ -27,7 +27,11 @@ export default function AthleteSeasonalPlan({ athlete }: { athlete: any }) {
                     {isPast && (
                       <div
                         className="absolute left-0 right-0 h-[2px] bg-white/90 z-10"
-                        style={{ bottom: `${i + 1 === 6 ? pct - 1 : pct}%` }}
+                        style={{
+                          bottom: `${
+                            i + 1 >= 11 ? pct - 2 : i + 1 >= 5 ? pct - 1 : pct
+                          }%`
+                        }}
                         title={`Observed: ${pct}`}
                       />
                     )}
