@@ -11,22 +11,22 @@ export const athlete = {
 
   prestigeHistory: [
     { season: 15, week: 10,  age: { years: 23, weeks: 3  }, value: 75 },
-    { season: 15, week: 3,  age: { years: 22, weeks: 9  }, value: 71 },
-    { season: 14, week: 9,  age: { years: 22, weeks: 2  }, value: 67 },
-    { season: 14, week: 2,  age: { years: 21, weeks: 8  }, value: 63 },
-    { season: 13, week: 8,  age: { years: 21, weeks: 1  }, value: 60 },
-    { season: 13, week: 1,  age: { years: 20, weeks: 7 }, value: 57 },
-    { season: 12, week: 7,  age: { years: 20, weeks: 13  }, value: 54 },
-    { season: 11, week: 13,  age: { years: 19, weeks: 6  }, value: 51 },
-    { season: 11, week: 6,  age: { years: 19, weeks: 12  }, value: 49 },
-    { season: 10, week: 12,  age: { years: 18, weeks: 5  }, value: 47 },
+    { season: 15, week: 3,  age: { years: 22, weeks: 9  }, value: 67 },
+    { season: 14, week: 9,  age: { years: 22, weeks: 2  }, value: 63 },
+    { season: 14, week: 2,  age: { years: 21, weeks: 8  }, value: 60 },
+    { season: 13, week: 8,  age: { years: 21, weeks: 1  }, value: 57 },
+    { season: 13, week: 1,  age: { years: 20, weeks: 7 }, value: 53 },
+    { season: 12, week: 7,  age: { years: 19, weeks: 13  }, value: 51 },
+    { season: 11, week: 13,  age: { years: 19, weeks: 6  }, value: 49 },
+    { season: 11, week: 6,  age: { years: 18, weeks: 12  }, value: 47 },
+    { season: 10, week: 12,  age: { years: 18, weeks: 5  }, value: 45 },
   ],
 
   status: {
     health: "Healthy",
     form: 56,
     state: 76,
-    fatigue: 41,
+    fatigue: 59,
   },
 
   physical: { height: 0.72, weight: 0.55, durability: 71, },
@@ -103,7 +103,7 @@ export const athlete = {
     { label: "200m DL week 12, Thu", link: "#" },
   ],
 
-  seasonPlanDesired: [15, 25, 46, 72, 60, 42, 40, 48, 55, 67, 78, 55, 30],
+  seasonPlanDesired: [15, 25, 46, 70, 50, 62, 77, 58, 55, 60, 72, 55, 30],
 };
 
 // computed total
@@ -136,6 +136,7 @@ export const publicResults = [
   { event: "200m", meet: "CL week 9, Sat", result: "22.04", link: "#" },
   { event: "200m", meet: "CL week 8, Sat", result: "21.80", link: "#" },
   { event: "200m", meet: "DL week 8, Thu", result: "21.51", link: "#" },
+  { event: "200m", meet: "WU23 week 7, Thu", result: "20.55", link: "#" },
   { event: "100m", meet: "DL week 6, Tue", result: "11.27", link: "#" },
   { event: "100m", meet: "CL week 5, Sat", result: "11.24", link: "#" },
   { event: "100m", meet: "DL week 5, Thu", result: "10.91", link: "#" },

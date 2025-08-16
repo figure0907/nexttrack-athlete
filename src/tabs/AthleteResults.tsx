@@ -27,7 +27,7 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
             .sort((a, b) => a.localeCompare(b))
             .map((event) => {
               const benchmarks: Record<string, number> = {
-                "200": 20.67, "100": 10.44, "400": 49.72,
+                "200": 20.55, "100": 10.44, "400": 49.72,
               };
               return (
                 <div key={event} className="flex justify-between">
@@ -47,6 +47,7 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
             { event: "200m", meet: "CL week 9, Sat", result: "22.04", pos: "1", link: "#" },
             { event: "200m", meet: "CL week 8, Sat", result: "21.80", pos: "1", link: "#" },
             { event: "200m", meet: "DL week 8, Thu", result: "21.51", pos: "1", link: "#" },
+            { event: "200m", meet: "WU23 week 7, Thu", result: "20.55", pos: "2", link: "#"},
             { event: "100m", meet: "DL week 6, Tue", result: "11.27", pos: "2", link: "#" },
             { event: "100m", meet: "CL week 5, Sat", result: "11.24", pos: "1", link: "#" },
             { event: "100m", meet: "DL week 5, Thu", result: "10.91", pos: "2", link: "#" },
@@ -72,6 +73,7 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
             { event: "200m", meet: "CL week 9, Sat", link: "#" },
             { event: "200m", meet: "CL week 8, Sat", link: "#" },
             { event: "200m", meet: "DL week 8, Thu", link: "#" },
+            { event: "200m", meet: "WU23 week 7, Thu", link: "#" },
             { event: "100m", meet: "DL week 6, Tue", link: "#" },
             { event: "100m", meet: "CL week 5, Sat", link: "#" },
             { event: "100m", meet: "DL week 5, Thu", link: "#" },
@@ -81,8 +83,8 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
             { event: "100m", meet: "CL week 2, Sat", link: "#" },
             { event: "200m", meet: "DL week 2, Thu", link: "#" },
           ].slice(-8).map((r, i) => {
-            const dailyForms = [77, 67, 55, 48, 40, 42, 54, 67, 76, 60, 48, 37, 26].slice(0, 8);
-            const pushLevels = [10, 6, 3, 3, 5, 4, 4, 6, 9, 6, 5, 5, 7].slice(0, 8)
+            const dailyForms = [72, 60, 55, 58, 62, 77, 64, 58, 70, 60, 48, 37, 26].slice(0, 8);
+            const pushLevels = [10, 6, 3, 3, 5, 10, 4, 4, 6, 9, 6, 5, 5, 7].slice(0, 8);
             const feedbacks  = ["Normal","Normal","Normal","Good","Good","Normal","Normal","Good","Normal","Normal","Great","Normal","Bad"];
             return (
               <a key={i} href={r.link} className="flex justify-between rounded-xl bg-white/10 p-3 backdrop-blur hover:bg-white/20">
@@ -102,6 +104,7 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
               { event: "200m", meet: "CL week 9, Sat", result: "22.04", pos: "1", link: "#" },
               { event: "200m", meet: "CL week 8, Sat", result: "21.80", pos: "1", link: "#" },
               { event: "200m", meet: "DL week 8, Thu", result: "21.51", pos: "1", link: "#" },
+              { event: "200m", meet: "WU23 week 7, Thu", result: "20.55", pos: "2", link: "#" },
               { event: "100m", meet: "DL week 6, Tue", result: "11.27", pos: "2", link: "#" },
               { event: "100m", meet: "CL week 5, Sat", result: "11.24", pos: "1", link: "#" },
               { event: "100m", meet: "DL week 5, Thu", result: "10.91", pos: "2", link: "#" },
@@ -111,8 +114,8 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
               { event: "100m", meet: "CL week 2, Sat", result: "11.15", pos: "1", link: "#" },
               { event: "200m", meet: "DL week 2, Thu", result: "21.72", pos: "2", link: "#" },
             ].slice(8).map((r, i) => {
-              const dailyForms = [77, 67, 55, 48, 40, 42, 54, 67, 76, 60, 48, 37, 26].slice(8);
-              const pushLevels = [10, 6, 3, 3, 5, 4, 4, 6, 9, 6, 5, 5, 7].slice(8);
+              const dailyForms = [72, 60, 55, 58, 62, 77, 64, 58, 70, 60, 48, 37, 26].slice(8);
+              const pushLevels = [10, 6, 3, 3, 5, 10, 4, 4, 6, 9, 6, 5, 5, 7].slice(8);
               const feedbacks  = ["Normal","Normal","Normal","Good","Good","Normal","Normal","Good","Normal","Normal","Great","Normal","Bad"].slice(8);
               return (
                 <a key={i} href={r.link} className="flex justify-between rounded-xl bg-white/10 p-3 backdrop-blur hover:bg-white/20">

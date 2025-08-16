@@ -29,7 +29,7 @@ export default function AthleteSeasonalPlan({ athlete }: { athlete: any }) {
                         className="absolute left-0 right-0 h-[2px] bg-white/90 z-10"
                         style={{
                           bottom: `${
-                            i + 1 >= 11 ? pct - 2 : i + 1 >= 5 ? pct - 1 : pct
+                            i + 1 >= 11 ? pct - 3 : i + 1 >= 5 ? pct - 2 : pct
                           }%`
                         }}
                         title={`Observed: ${pct}`}
@@ -53,7 +53,7 @@ export default function AthleteSeasonalPlan({ athlete }: { athlete: any }) {
       <div className="relative rounded-2xl bg-white/10 p-4">
         <div className="mb-2 text-sm text-white/80">Weekly Fatigue</div>
         <div className="grid items-end gap-2 h-64 [grid-template-columns:repeat(13,minmax(0,1fr))]">
-          {[5, 10, 15, 25, 30, 33, 24, 27, 27, 29, 41, null, null].map((v, i) => {
+          {[5, 10, 15, 25, 30, 33, 44, 46, 47, 48, 59, null, null].map((v, i) => {
             const heightPct = v == null ? 0 : mapFatigue(v).proportion * 100;
             const barColor  = v == null ? "bg-white/30" : mapFatigue(v).barColor;
 
