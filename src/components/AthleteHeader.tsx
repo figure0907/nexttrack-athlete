@@ -24,7 +24,7 @@ export default function AthleteHeader({ athlete, tabs, tab, setTab }: AthleteHea
                 <span className="inline-block rounded-full bg-emerald-500 px-3 py-1 text-xs font-semibold">
                   Health: {athlete.status.health}
                 </span>
-                <span className="ml-1 inline-block rounded-full bg-yellow-500 px-3 py-1 text-xs font-semibold">
+                <span className="ml-1 inline-block rounded-full bg-amber-400 px-3 py-1 text-xs font-semibold">
                   Fatigue: Low
                 </span>
               </div>

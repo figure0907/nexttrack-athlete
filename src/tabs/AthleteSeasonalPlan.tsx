@@ -1,4 +1,5 @@
 import GlassCard from "../components/GlassCard";
+import { mapFatigue } from "../components/StatBar";
 import { athleteSeasonPlanDesiredTotal, publicResults } from "../data/athlete";
 
 export default function AthleteSeasonalPlan({ athlete }: { athlete: any }) {
@@ -9,7 +10,7 @@ export default function AthleteSeasonalPlan({ athlete }: { athlete: any }) {
         <div className="mb-2 text-sm text-white/80">Weekly Planned States</div>
         <div className="grid items-end gap-2 h-64 [grid-template-columns:repeat(13,minmax(0,1fr))]">
           {(() => {
-            const currentWeek = athlete.currentWeek ?? 6; // 1..13
+            const currentWeek = athlete.currentWeek ?? 11; // 1..13
             return athlete.seasonPlanDesired.map((v: number, i: number) => {
               const pct = Math.max(0, Math.min(100, v));
               const isPast = i + 1 <= currentWeek;
@@ -48,25 +49,25 @@ export default function AthleteSeasonalPlan({ athlete }: { athlete: any }) {
       <div className="relative rounded-2xl bg-white/10 p-4">
         <div className="mb-2 text-sm text-white/80">Weekly Fatigue</div>
         <div className="grid items-end gap-2 h-64 [grid-template-columns:repeat(13,minmax(0,1fr))]">
-          {[7, 5, 10, 15, 20, 25, null, null, null, null, null, null, null].map(
-            (v, i) => {
-              const pct = v !== null ? Math.max(0, Math.min(100, v)) : 0;
-              return (
-                <div key={i} className="flex flex-col items-center gap-2">
-                  <div className="relative h-52 w-5 overflow-hidden rounded-md bg-white/20">
-                    {v !== null && (
-                      <div
-                        className="absolute bottom-0 left-0 right-0 bg-red-500"
-                        style={{ height: `${pct}%` }}
-                        title={`Week ${i + 1}: ${pct}`}
-                      />
-                    )}
-                  </div>
-                  <div className="text-[10px] text-white/70">W{i + 1}</div>
+          {[5, 10, 15, 25, 30, 33, 24, 27, 27, 29, 41, null, null].map((v, i) => {
+            const heightPct = v == null ? 0 : mapFatigue(v).proportion * 100;
+            const barColor  = v == null ? "bg-white/30" : mapFatigue(v).barColor;
+
+            return (
+              <div key={i} className="flex flex-col items-center gap-2">
+                <div className="relative h-52 w-5 overflow-hidden rounded-md bg-white/20">
+                  {v != null && (
+                    <div
+                      className={`absolute bottom-0 left-0 right-0 ${barColor}`}
+                      style={{ height: `${heightPct}%` }}
+                      title={`Week ${i + 1}: ${v}`}
+                    />
+                  )}
                 </div>
-              );
-            }
-          )}
+                <div className="text-[10px] text-white/70">W{i + 1}</div>
+              </div>
+            );
+          })}
         </div>
       </div>
 
@@ -104,10 +105,11 @@ export default function AthleteSeasonalPlan({ athlete }: { athlete: any }) {
                         labels.map((txt, idx) => (
                           <div
                             key={idx}
-                            className="truncate rounded-md bg-white/15 px-2.5 py-1 text-xs md:text-sm text-white text-center"
+                            className="rounded-md bg-white/15 px-2.5 py-1 text-xs md:text-sm text-white text-center"
                             title={txt}
                           >
-                            {txt}
+                            <div>{txt.split(" ")[0]}</div>
+                            <div>{txt.split(" ")[1]}</div>
                           </div>
                         ))
                       ) : (

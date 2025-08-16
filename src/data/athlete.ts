@@ -24,8 +24,8 @@ export const athlete = {
   status: {
     health: "Healthy",
     form: 56,
-    state: 47,
-    fatigue: 25,
+    state: 76,
+    fatigue: 41,
   },
 
   physical: { height: 0.72, weight: 0.55, durability: 71, },
@@ -94,9 +94,13 @@ export const athlete = {
     EXP: 2, POW: 2, STR: 2,
   } as Record<string, 0 | 1 | 2>,
 
-  technicals: { "100": 62, "200": 67, "400": 46 },
+  technicals: { "100": 61, "200": 67, "400": 44 },
 
-  entries: [{ label: "100m DL week 6, Tue", link: "#" }],
+  entries: [
+    { label: "100m CL week 11, Sat", link: "#" },
+    { label: "100m DL week 12, Tue", link: "#" },
+    { label: "200m DL week 12, Thu", link: "#" },
+  ],
 
   seasonPlanDesired: [15, 25, 46, 72, 60, 42, 40, 48, 55, 67, 78, 55, 30],
 };
@@ -126,9 +130,15 @@ export const LABELS: Record<string, string> = {
 };
 
 export const publicResults = [
+  { event: "100m", meet: "NCC week 11, Tue", result: "10.44", link: "#" },
+  { event: "200m", meet: "DL week 10, Tue", result: "21.38", link: "#" },
+  { event: "200m", meet: "CL week 9, Sat", result: "22.04", link: "#" },
+  { event: "200m", meet: "CL week 8, Sat", result: "21.80", link: "#" },
+  { event: "200m", meet: "DL week 8, Thu", result: "21.51", link: "#" },
+  { event: "100m", meet: "DL week 6, Tue", result: "11.27", link: "#" },
   { event: "100m", meet: "CL week 5, Sat", result: "11.24", link: "#" },
   { event: "100m", meet: "DL week 5, Thu", result: "10.91", link: "#" },
-  { event: "200m", meet: "NC week 4, Tue", result: "20.65", link: "#" },
+  { event: "200m", meet: "NC week 4, Tue", result: "20.67", link: "#" },
   { event: "200m", meet: "DL week 3, Thu", result: "21.27", link: "#" },
   { event: "200m", meet: "DL week 3, Tue", result: "21.45", link: "#" },
   { event: "100m", meet: "CL week 2, Sat", result: "11.15", link: "#" },

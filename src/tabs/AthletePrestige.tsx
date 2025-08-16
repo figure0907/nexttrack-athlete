@@ -23,69 +23,68 @@ export default function AthletePrestige({
   const labels = ordered.map((p) => `S${p.season}W${p.week}`);
   const n = series.length;
 
-  // —— CONFIG ——
-  const FIT_TO_DATA = false;   // ← fixed 0–100 scale
-  const P_X = 0;               // horizontal pad (% of viewBox width)
-  const P_Y = 0;               // vertical pad (% of viewBox height)
-  const DATA_MARGIN = 6;       // only used if FIT_TO_DATA = true
+  // ---------- CHART GEOMETRY (no distortion, fills horizontally) ----------
+  // Use a wide viewBox so the chart spans the card without left/right gutters,
+  // while keeping preserveAspectRatio so dots/lines don't warp.
+  const VBW = 380; // viewBox width (wide)
+  const VBH = 100; // viewBox height
+  const padX = 22;  // small horizontal breathing room (set 0 to hug edges)
+  const padY = 6;  // vertical padding
 
-  // ViewBox is normalized 0..100 in both axes
-  const plotW = 100 - 2 * P_X;
-  const plotH = 100 - 2 * P_Y;
+  const W = VBW - 2 * padX;
+  const H = VBH - 2 * padY;
 
-  // Y scale
-  const clamp = (v: number, lo = 0, hi = 100) => Math.max(lo, Math.min(hi, v));
-  const dataMin = series.length ? Math.min(...series) : 0;
-  const dataMax = series.length ? Math.max(...series) : 100;
+  const yFor = (v: number) => padY + (1 - v / 100) * H;
+  const xFor = (i: number) => (n <= 1 ? VBW / 2 : padX + (i * W) / (n - 1));
 
-  const yMin = FIT_TO_DATA ? clamp(dataMin - DATA_MARGIN) : 0;
-  const yMax = FIT_TO_DATA ? clamp(dataMax + DATA_MARGIN) : 100;
-  const ySpan = Math.max(1, yMax - yMin);
+  const pointStr = n > 0 ? series.map((v, i) => `${xFor(i)},${yFor(v)}`).join(" ") : "";
 
-  const xFor = (i: number) =>
-    n > 1 ? P_X + (i * plotW) / (n - 1) : 50;
-
-  const yFor = (v: number) =>
-    P_Y + (1 - (clamp(v, yMin, yMax) - yMin) / ySpan) * plotH;
-
-  const points =
-    n > 1 ? series.map((v, i) => `${xFor(i)},${yFor(v)}`).join(" ") : "";
-
-  // Guide lines: show bottom/mid/top of current scale
-  const guideVals = [yMin, (yMin + yMax) / 2, yMax];
+  // Thin x labels if there are many points
+  const labelStep = n > 16 ? Math.ceil(n / 8) : 1;
 
   return (
     <div className="grid grid-cols-1 gap-10 md:grid-cols-4 auto-rows-auto">
       <div className="md:col-span-4">
         <GlassCard title="Prestige Over Time">
-          {n > 1 ? (
+          {n === 0 ? (
+            <div className="text-sm text-white/70">No prestige history yet.</div>
+          ) : (
             <div className="w-full overflow-hidden rounded-xl bg-white/10 p-3">
               <svg
-                viewBox="0 0 100 100"
+                viewBox={`0 0 ${VBW} ${VBH}`}
                 preserveAspectRatio="xMidYMid meet"
-                className="w-full h-[640px]"
+                className="w-full h-64 md:h-72"
               >
-                {/* guide lines */}
-                {guideVals.map((gv, i) => (
-                  <line
-                    key={i}
-                    x1="0"
-                    y1={yFor(gv)}
-                    x2="100"
-                    y2={yFor(gv)}
-                    stroke="rgba(255,255,255,.15)"
-                    strokeWidth="1"
-                    vectorEffect="non-scaling-stroke"
-                  />
+                {/* horizontal grid at 0/25/50/75/100 */}
+                {[0, 25, 50, 75, 100].map((val) => (
+                  <g key={val}>
+                    <line
+                      x1={0}
+                      x2={VBW}
+                      y1={yFor(val)}
+                      y2={yFor(val)}
+                      stroke="rgba(255,255,255,.15)"
+                      strokeWidth={0.5}
+                      vectorEffect="non-scaling-stroke"
+                    />
+                    <text
+                      x={1.5}
+                      y={yFor(val) - 1.5}
+                      fontSize={3}
+                      fill="rgba(255,255,255,.5)"
+                    >
+                      {val}
+                    </text>
+                  </g>
                 ))}
 
-                {/* polyline */}
+                {/* line */}
                 <polyline
+                  points={pointStr}
                   fill="none"
                   stroke="rgba(255,165,0,.9)"
-                  strokeWidth="3"
+                  strokeWidth={2}
                   vectorEffect="non-scaling-stroke"
-                  points={points}
                 />
 
                 {/* dots */}
@@ -94,32 +93,32 @@ export default function AthletePrestige({
                     key={i}
                     cx={xFor(i)}
                     cy={yFor(v)}
-                    r="2.5"
-                    fill="rgba(255,165,0,.9)"
+                    r={2}
+                    fill="rgba(255,165,0,1)"
                     vectorEffect="non-scaling-stroke"
                   />
                 ))}
               </svg>
 
-              {/* labels: exactly N columns, single line each */}
+              {/* x labels in a responsive grid */}
               <div
-                className="mt-2 grid gap-2 text-[10px] text-white/70"
+                className="mt-2 grid gap-1 text-[10px] text-white/70"
                 style={{ gridTemplateColumns: `repeat(${n}, minmax(0, 1fr))` }}
               >
                 {labels.map((l, i) => (
-                  <div key={i} className="text-center whitespace-nowrap">
+                  <div
+                    key={i}
+                    className={`text-center ${i % labelStep ? "opacity-40" : ""}`}
+                  >
                     {l}
                   </div>
                 ))}
               </div>
 
-              {/* scale caption */}
               <div className="mt-1 text-right text-[10px] text-white/60">
-                Scale: 0–100
+                Scale: 0–100 (higher is better)
               </div>
             </div>
-          ) : (
-            <div className="text-sm text-white/70">No prestige history yet.</div>
           )}
         </GlassCard>
       </div>
