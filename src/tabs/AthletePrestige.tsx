@@ -114,10 +114,6 @@ export default function AthletePrestige({
                   </div>
                 ))}
               </div>
-
-              <div className="mt-1 text-right text-[10px] text-white/60">
-                Scale: 0–100 (higher is better)
-              </div>
             </div>
           )}
         </GlassCard>
@@ -125,7 +121,27 @@ export default function AthletePrestige({
 
       <div className="md:col-span-4">
         <GlassCard title="Recent Prestige Events">
-          <div className="text-sm text-white/70">No recent changes.</div>
+          <div className="space-y-3 text-sm">
+            {[
+              { event: "100m", meet: "NCC week 11, Tue", result: "10.44", pos: "3", link: "#", season: "15" },
+              { event: "200m", meet: "NC week 4, Tue", result: "20.67", pos: "5", link: "#", season: "15" },
+              { event: "200m", meet: "NCC week 11, Tue", result: "20.90", pos: "3", link: "#", season: "14" },
+              { event: "200m", meet: "NC week 4, Tue", result: "21.05", pos: "7", link: "#", season: "14" },
+              { event: "200m", meet: "WCCQ week 13, Thu", result: "20.99", pos: "6", link: "#", season: "13" },
+              { event: "200m", meet: "NCC week 11, Tue", result: "21.37", pos: "8", link: "#", season: "13" },
+              { event: "200m", meet: "NC week 4, Tue", result: "21.25", pos: "10", link: "#", season: "13" },
+            ].map((r, i) => {
+              const prestigeLevels  = ["50", "44", "50", "32", "30", "13", "16"];
+              return (
+                <a key={i} href={r.link} className="flex justify-between rounded-xl bg-white/10 p-3 backdrop-blur hover:bg-white/20">
+                  <span>{r.event} {r.meet} - Season: {r.season}</span>
+                  <span>Result: {r.result} · Position: {r.pos}</span>
+                  <span className="tabular-nums">Prestige: {prestigeLevels[i]}
+                  </span>
+                </a>
+              );
+            })}
+          </div>
         </GlassCard>
       </div>
     </div>

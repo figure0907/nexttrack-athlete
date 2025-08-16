@@ -10,15 +10,16 @@ export const athlete = {
   prestige: 80,
 
   prestigeHistory: [
-    { season: 15, week: 3,  age: { years: 23, weeks: 1  }, value: 76 },
-    { season: 14, week: 9,  age: { years: 22, weeks: 7  }, value: 70 },
-    { season: 14, week: 2,  age: { years: 21, weeks: 13  }, value: 66 },
-    { season: 13, week: 8,  age: { years: 21, weeks: 6  }, value: 63 },
-    { season: 13, week: 1,  age: { years: 20, weeks: 12 }, value: 60 },
-    { season: 12, week: 7,  age: { years: 20, weeks: 5  }, value: 57 },
-    { season: 11, week: 13,  age: { years: 19, weeks: 11  }, value: 54 },
-    { season: 11, week: 6,  age: { years: 19, weeks: 4  }, value: 52 },
-    { season: 10, week: 12,  age: { years: 18, weeks: 10  }, value: 50 },
+    { season: 15, week: 10,  age: { years: 23, weeks: 3  }, value: 75 },
+    { season: 15, week: 3,  age: { years: 22, weeks: 9  }, value: 71 },
+    { season: 14, week: 9,  age: { years: 22, weeks: 2  }, value: 67 },
+    { season: 14, week: 2,  age: { years: 21, weeks: 8  }, value: 63 },
+    { season: 13, week: 8,  age: { years: 21, weeks: 1  }, value: 60 },
+    { season: 13, week: 1,  age: { years: 20, weeks: 7 }, value: 57 },
+    { season: 12, week: 7,  age: { years: 20, weeks: 13  }, value: 54 },
+    { season: 11, week: 13,  age: { years: 19, weeks: 6  }, value: 51 },
+    { season: 11, week: 6,  age: { years: 19, weeks: 12  }, value: 49 },
+    { season: 10, week: 12,  age: { years: 18, weeks: 5  }, value: 47 },
   ],
 
   status: {
