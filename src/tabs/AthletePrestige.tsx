@@ -139,7 +139,7 @@ export default function AthletePrestige({
                 <a key={i} href={r.link} className="flex justify-between rounded-xl bg-white/10 p-3 backdrop-blur hover:bg-white/20">
                   <span>{r.event} {r.meet} - Season: {r.season}</span>
                   <span>Result: {r.result} · Position: {r.pos}</span>
-                  <span className="tabular-nums">Prestige: {prestigeLevels[i]}
+                  <span className="tabular-nums">Prestige Points: {prestigeLevels[i]}
                   </span>
                 </a>
               );
