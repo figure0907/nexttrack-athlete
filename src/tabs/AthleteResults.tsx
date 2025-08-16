@@ -83,9 +83,9 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
             { event: "100m", meet: "CL week 2, Sat", link: "#" },
             { event: "200m", meet: "DL week 2, Thu", link: "#" },
           ].slice(-8).map((r, i) => {
-            const dailyForms = [72, 60, 55, 58, 62, 77, 64, 58, 70, 60, 48, 37, 26].slice(0, 8);
+            const dailyForms = [72, 60, 55, 58, 62, 77, 64, 58, 58, 70, 60, 48, 37, 26].slice(0, 8);
             const pushLevels = [10, 6, 3, 3, 5, 10, 4, 4, 6, 9, 6, 5, 5, 7].slice(0, 8);
-            const feedbacks  = ["Normal","Normal","Normal","Good","Good","Normal","Normal","Good","Normal","Normal","Great","Normal","Bad"];
+            const feedbacks  = ["Normal","Normal","Normal","Good","Good","Normal","Normal","Normal","Good","Normal","Normal","Great","Normal","Bad"];
             return (
               <a key={i} href={r.link} className="flex justify-between rounded-xl bg-white/10 p-3 backdrop-blur hover:bg-white/20">
                 <span className="tabular-nums">Push: {pushLevels[i]} · State: {dailyForms[i]} · {feedbacks[i]}</span>
@@ -114,9 +114,9 @@ export default function AthleteResults({ athlete }: { athlete: any }) {
               { event: "100m", meet: "CL week 2, Sat", result: "11.15", pos: "1", link: "#" },
               { event: "200m", meet: "DL week 2, Thu", result: "21.72", pos: "2", link: "#" },
             ].slice(8).map((r, i) => {
-              const dailyForms = [72, 60, 55, 58, 62, 77, 64, 58, 70, 60, 48, 37, 26].slice(8);
+              const dailyForms = [72, 60, 55, 58, 62, 77, 64, 58, 58, 70, 60, 48, 37, 26].slice(8);
               const pushLevels = [10, 6, 3, 3, 5, 10, 4, 4, 6, 9, 6, 5, 5, 7].slice(8);
-              const feedbacks  = ["Normal","Normal","Normal","Good","Good","Normal","Normal","Good","Normal","Normal","Great","Normal","Bad"].slice(8);
+              const feedbacks  = ["Normal","Normal","Normal","Good","Good","Normal","Normal","Normal","Good","Normal","Normal","Great","Normal","Bad"].slice(8);
               return (
                 <a key={i} href={r.link} className="flex justify-between rounded-xl bg-white/10 p-3 backdrop-blur hover:bg-white/20">
                   <span>{r.event} {r.meet}</span>
